@@ -1,21 +1,24 @@
 # Create the Class, who define how the objects enviroment
 
 class People: # OBJETO
-    def __init__(self, nome=None, idade=35):
+    def __init__(self, *sons, nome=None, idade=35):
         self.idade = idade
         self.nome = nome
+        self.sons = list(sons)
 
     def cumprimentar(self): # PARAMETRO
         return f'\033[30mHello\033[m{id(self)}'
 
 if __name__ == '__main__':
-    p = People('Aline')
-    print(People.cumprimentar(p))
-    print(id(p))
-    print(p.cumprimentar())
-    print(p.nome)
-    p.nome = "\033[33mRafael\033[m"
-    print(p.nome)
-    print(p.idade)
+    rafael = People(nome='Rafael')
+    aline = People(rafael, nome='Aline')
+    print(People.cumprimentar(aline))
+    print(id(aline))
+    print(aline.cumprimentar())
+    print(aline.nome)
+    print(aline.idade)
+    for sons in aline.sons:
+        print(sons.nome)
+
 
 
