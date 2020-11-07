@@ -19,6 +19,10 @@ if __name__ == '__main__':
     print(aline.idade)
     for sons in aline.sons:
         print(sons.nome)
+    aline.sobrenome = "Reis"
+    del aline.sons
+    print(aline.__dict__)
+    print(rafael.__dict__)
 
 
 
